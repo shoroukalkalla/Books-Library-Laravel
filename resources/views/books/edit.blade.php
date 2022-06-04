@@ -10,17 +10,19 @@
 
     <div class="w-50">
         <div class="form-group mb-3">
-            <input type="text" name="title" class="form-control" placeholder="title" value="{{$book->title}}">
+            <input type="text" name="title" class="form-control" placeholder="title" value="{{old('title') ?? $book->title}}">
+            @if($errors->has('title'))
+            <div class="alert alert-danger">{{$errors->first('title')}}</div>
+            @endif
           </div>
           <div class="form-group mb-3">
-            <textarea class="form-control" name="description" rows="3" placeholder="description">{{$book->description}}</textarea>
+            <textarea class="form-control" name="description" rows="3" placeholder="description">{{old('description') ?? $book->description}}</textarea>
+            @if($errors->has('description'))
+            <div class="alert alert-danger">{{$errors->first('description')}}</div>
+            @endif
           </div>
     </div>
 
-    <div>
-        <a href="{{ route('books.index') }}" class="btn btn-primary" style="width:80px">Back</a>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-
+    @include('buttons.btn')
 </form>
 @endsection

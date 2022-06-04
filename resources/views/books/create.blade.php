@@ -9,16 +9,20 @@
     @csrf
     <div class="w-50">
         <div class="form-group mb-3">
-            <input type="text" name="title" class="form-control" placeholder="title">
+            <input type="text" name="title" class="form-control" placeholder="title" value="{{old('title')}}">
+            @if($errors->has('title'))
+            <div class="alert alert-danger">{{$errors->first('title')}}</div>
+            @endif
           </div>
           <div class="form-group mb-3">
-            <textarea class="form-control"name="description" rows="3" placeholder="description"></textarea>
+            <textarea class="form-control"name="description" rows="3" placeholder="description">{{old('description')}}</textarea>
+            @if($errors->has('description'))
+            <div class="alert alert-danger">{{$errors->first('description')}}</div>
+            @endif
           </div>
     </div>
 
-    <div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+    @include('buttons.btn')
 
 </form>
 @endsection

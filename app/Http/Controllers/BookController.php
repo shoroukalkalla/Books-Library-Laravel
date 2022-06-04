@@ -34,9 +34,15 @@ class BookController extends Controller
     {
         return view('books.create');
     }
-
+    //====================================================================================================================================//
     public function store(Request $request)
     {
+        //validation
+        $request->validate([
+            'title' => 'required|string|max:100',
+            'description' => 'required|string'
+        ]);
+
         Book::create([
             'title' => $request->title,
             'description' => $request->description
@@ -44,22 +50,28 @@ class BookController extends Controller
 
         return redirect(route('books.index'));
     }
-
+    //====================================================================================================================================//
     public function edit($id)
     {
         $book = Book::findOrFail($id);
         return view('books.edit', compact('book'));
     }
-
+    //====================================================================================================================================//
     public function update(Request $request, $id)
     {
+        //validation
+        $request->validate([
+            'title' => 'required|string|max:100',
+            'description' => 'required|string'
+        ]);
+
         Book::findOrFail($id)->update([
             'title' => $request->title,
             'description' => $request->description
         ]);
         return redirect(route('books.index'));
     }
-
+    //====================================================================================================================================//
     public function delete($id)
     {
         Book::findOrFail($id)->delete();

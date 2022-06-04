@@ -8,7 +8,7 @@
 @section('content')
 
         <div class="text-center mt-5 mb-5">
-            <a href="{{ route('books.create') }}" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">create</a>
+            <a href="{{ route('books.create') }}" class="btn btn-success">create</a>
         </div>
         
         <table class="table w-75 m-auto mb-2 text-center">
