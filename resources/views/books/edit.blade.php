@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form method="POST" action="{{ route('books.update', $book->id) }}" class="w-75 m-auto d-flex justify-content-center align-items-center flex-column vh-100">
+<form method="POST" action="{{ route('books.update', $book->id) }}" enctype="multipart/form-data" class="w-75 m-auto d-flex justify-content-center align-items-center flex-column vh-100">
     @csrf
 
     <div class="w-50">
@@ -20,6 +20,9 @@
             @if($errors->has('description'))
             <div class="alert alert-danger">{{$errors->first('description')}}</div>
             @endif
+          </div>
+          <div class="mb-3">
+            <input class="form-control form-control-sm" name="img" type="file">
           </div>
     </div>
 
