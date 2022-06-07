@@ -32,11 +32,11 @@ Route::post('/books/store', [BookController::class, 'store'])->name('books.store
 
 //------------>> Books:update <<------------//
 
-Route::get('/books/edit/{id}', [CategoryController::class, 'edit'])->name('books.edit');
-Route::post('/books/update/{id}', [CategoryController::class, 'update'])->name('books.update');
+Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('books.edit');
+Route::post('/books/update/{id}', [BookController::class, 'update'])->name('books.update');
 
 //------------>> Books:delete <<------------//
-Route::get('/books/delete/{id}', [CategoryController::class, 'delete'])->name('books.delete');
+Route::get('/books/delete/{id}', [BookController::class, 'delete'])->name('books.delete');
 
 // ------------------------------>>>>>>>>>><<<<<<<<<<------------------------------ //
 

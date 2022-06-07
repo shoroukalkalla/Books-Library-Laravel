@@ -11,5 +11,11 @@ class Category extends Model
         'name'
     ];
 
+    // category belongsToMany books:
+    public function books()
+    {
+        return $this->belongsToMany('App\Models\Book');
+    }
+
     use HasFactory;
 }

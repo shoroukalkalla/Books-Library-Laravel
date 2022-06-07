@@ -12,5 +12,11 @@ class Book extends Model
         'title', 'description', 'img'
     ];
 
-    use HasFactory; 
+    // book belongsToMany categories:
+    public function categories()
+    {
+        return $this->belongsToMany('\App\Models\Category');
+    }
+
+    use HasFactory;
 }

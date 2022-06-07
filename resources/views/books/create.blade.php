@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
 <form method="POST" action="{{ route('books.store') }}" enctype="multipart/form-data" class="w-75 m-auto d-flex justify-content-center align-items-center flex-column vh-100">
     @csrf
     <div class="w-50">
@@ -25,8 +26,11 @@
           </div>
     </div>
 
-    @include('buttons.btn')
-
+    <div>
+      <a href="{{ route('books.index') }}" class="btn btn-primary" style="width:80px">Back</a>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  
 </form>
 @endsection
 

@@ -41,13 +41,16 @@ class BookController extends Controller
         $request->validate([
             'title' => 'required|string|max:100',
             'description' => 'required|string',
-            'img' => 'required|image|mimes:jpg,png'
+            'img' => 'image|mimes:jpg,png'
         ]);
 
-        $img = $request->file('img');
-        $extension = $img->getClientOriginalExtension();
-        $name = uniqid() . ".$extension";
-        $img->move(public_path('uploads/books'), $name);
+        $name = "default.png";
+        if ($request->file('img')) {
+            $img = $request->file('img');
+            $extension = $img->getClientOriginalExtension();
+            $name = uniqid() . ".$extension";
+            $img->move(public_path('uploads/books'), $name);
+        }
 
         Book::create([
             'title' => $request->title,
@@ -98,7 +101,7 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
 
-        if ($book->img !== null) {
+        if ($book->img !== "default.png" && $book->img !== null) {
             unlink(public_path('uploads/books/') . $book->img);
         }
 
