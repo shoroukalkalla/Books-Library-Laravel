@@ -62,7 +62,16 @@ Route::get('/categories/delete/{id}', [CategoryController::class, 'delete'])->na
 
 // ------------------------------>>>>>>>>>><<<<<<<<<<------------------------------ //
 
-//------------>> Authentication <<------------//
+//------------>> Authentication:register <<------------//
 
 Route::get('/register', [AuthController::class, 'register'])->name('auth.register');
-Route::post('/handle-register', [AuthController::class, 'handleRegister'])->name('auth.handleRegister');
+Route::post('/handle-register', [AuthController::class, 'handleRegister'])->name('auth.handleRegister');//------------>> Authentication:register <<------------//
+
+//------------>> Authentication:login <<------------//
+
+Route::get('/login',[AuthController::class, 'login'])->name('auth.login');
+Route::post('/handle-login',[AuthController::class, 'handleLogin'])->name('auth.handleLogin');
+
+//------------>> Authentication:logout <<------------//
+
+Route::get('/logout',[AuthController::class,'logout'])->name('auth.logout');;

@@ -27,6 +27,12 @@
               <li class="nav-item">
                 <a class="nav-link active" href="{{ route('auth.register') }}">Register</a>
               </li>
+              <li>
+                <a class="nav-link active" href="{{ route('auth.login') }}">Login</a>
+              </li>
+              <li>
+                <a class="nav-link active" href="{{ route('auth.logout') }}">Logout</a>
+              </li>
             </ul>
           </div>
         </div>
