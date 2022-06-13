@@ -12,7 +12,7 @@
       <p class="card-title">Category ID: {{$category->id}}</p>
     </div>
     <hr/>
-      <h6>Books</h6>
+      <h6 class="ms-3">Books:</h6>
       <ul>
         @foreach ($category->books as $book)
         <li>Book ID: {{$book->id}}</li>

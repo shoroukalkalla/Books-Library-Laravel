@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data" class="w-75 m-auto d-flex justify-content-center align-items-center flex-column vh-100">
+<form method="POST" action="{{ route('categories.store') }}" enctype="multipart/form-data" class="w-75 m-auto d-flex justify-content-center align-items-center flex-column mt-5">
     @csrf
     <div class="w-50">
         <div class="form-group mb-3">

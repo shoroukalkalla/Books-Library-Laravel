@@ -7,11 +7,13 @@
 <div class="container m-auto w-50">
 @section('content')
 
-        <div class="text-center mt-5 mb-5">
-            <a href="{{ route('books.create') }}" class="btn btn-success">create</a>
+        @auth    
+        <div class="text-center mt-3 mb-3">
+            <a href="{{ route('books.create') }}" class="btn btn-success fs-5" style="width:150px">create</a>
         </div>
+        @endauth
         
-        <table class="table w-75 m-auto mb-2 text-center">
+        <table class="table w-75 m-auto mb-2 text-center border border-1">
             <thead>
               <tr>
                 <th scope="col">ID</th>
@@ -27,9 +29,11 @@
                 <td>{{$book->title}}</td>
                 <td>{{$book->description}}</td>
                 <td>
-                    <a href="{{ route('books.show', $book->id) }}" class="btn btn-info">show</a>
-                    <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">edit</a>
-                    <a href="{{ route('books.delete', $book->id) }}" class="btn btn-danger">delete</a>
+                  @auth    
+                  <a href="{{ route('books.show', $book->id) }}" class="btn btn-info">show</a>
+                  <a href="{{ route('books.edit', $book->id) }}" class="btn btn-warning">edit</a>
+                  <a href="{{ route('books.delete', $book->id) }}" class="btn btn-danger">delete</a>
+                  @endauth
                 </td>
             </tr>
             @endforeach

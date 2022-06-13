@@ -16,6 +16,10 @@
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name="password">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    <a href="{{route('auth.github.redirect')}}" class="btn btn-primary">Sign Up with GitHub</a>
 </form>
+
+
+
 @endsection

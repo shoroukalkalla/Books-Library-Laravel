@@ -24,15 +24,23 @@
               </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+              @guest    
               <li class="nav-item">
                 <a class="nav-link active" href="{{ route('auth.register') }}">Register</a>
               </li>
               <li>
                 <a class="nav-link active" href="{{ route('auth.login') }}">Login</a>
               </li>
+              @endguest
+
+              @auth
+              <li>
+                <a class="nav-link disabled" href="#">{{ Auth::user()->name }}</a>
+              </li>
               <li>
                 <a class="nav-link active" href="{{ route('auth.logout') }}">Logout</a>
               </li>
+              @endauth
             </ul>
           </div>
         </div>
