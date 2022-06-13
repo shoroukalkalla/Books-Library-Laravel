@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiBookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Books API:
+Route::get('/books', [ApiBookController::class, 'index']);
+
+Route::get('/books/show/{id}', [ApiBookController::class, 'show']);
+
+Route::post('/books/store', [ApiBookController::class, 'store']);
+
+Route::post('/books/update/{id}', [ApiBookController::class, 'update']);
